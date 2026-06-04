@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 const GOOGLE_FONT = `@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');`;
 
 const styles = `
@@ -543,4 +544,4 @@ function ServicesView({ showToast }) {
       </div>
     </div>
   );
-   }
+}
