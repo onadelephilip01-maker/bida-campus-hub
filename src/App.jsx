@@ -15,7 +15,10 @@ const styles = `
     --red: #ff4444;
     --yellow: #ffc107;
   }
-  body { font-family: Arial, sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: var(--dark); color: var(--text); min-height: 100vh;
+  }
   .app { display: flex; flex-direction: column; min-height: 100vh; }
   .topbar { background: var(--dark2); border-bottom: 1px solid var(--border); padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 58px; position: sticky; top: 0; z-index: 100; }
   .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.5px; }
@@ -81,7 +84,7 @@ const styles = `
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; }
   .modal { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; width: 100%; max-width: 420px; }
   .modal-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; }
-  .modal input, .modal textarea, .modal select { background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-size: 0.9rem; width: 100%; margin-bottom: 12px; outline: none; font-family: Arial, sans-serif; }
+  .modal input, .modal textarea, .modal select { background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-size: 0.9rem; width: 100%; margin-bottom: 12px; outline: none; font-family: inherit; }
   .modal textarea { resize: vertical; min-height: 80px; }
   .modal select option { background: var(--dark2); }
   .modal-actions { display: flex; gap: 10px; }
@@ -97,6 +100,7 @@ const styles = `
   .quick-item { background: var(--dark2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 8px; text-align: center; cursor: pointer; }
   .quick-item:hover { border-color: var(--green); }
   .quick-icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .quick-label { font-size: 0.75rem; font-weight: 500; }
   .quick-sub { font-size: 0.65rem; color: var(--text2); }
   .see-all { font-size: 0.8rem; color: var(--green); cursor: pointer; text-align: center; margin-top: 12px; display: block; }
   @media (max-width: 640px) {
@@ -112,12 +116,12 @@ const styles = `
 `;
 
 const newsData = [
-  { id: 1, tag: "urgent", title: "ND I Second Semester Exams begin July 14 â€” Check timetable on portal", date: "Today", reads: 342 },
-  { id: 2, tag: "general", title: "New Computer Lab opened at Engineering Block B â€” 80 new workstations", date: "Jun 2", reads: 218 },
-  { id: 3, tag: "event", title: "SUG Cultural Night â€” Friday 7 PM, School Hall. Free entry for students", date: "Jun 1", reads: 156 },
+  { id: 1, tag: "urgent", title: "ND I Second Semester Exams begin July 14 \u2013 Check timetable on portal", date: "Today", reads: 342 },
+  { id: 2, tag: "general", title: "New Computer Lab opened at Engineering Block B \u2013 80 new workstations", date: "Jun 2", reads: 218 },
+  { id: 3, tag: "event", title: "SUG Cultural Night \u2013 Friday 7 PM, School Hall. Free entry for students", date: "Jun 1", reads: 156 },
   { id: 4, tag: "exam", title: "Physics STP 111 continuous assessment results now available on portal", date: "May 30", reads: 290 },
   { id: 5, tag: "general", title: "Library extends hours to 10 PM during exam season starting Monday", date: "May 29", reads: 187 },
-  { id: 6, tag: "event", title: "Entrepreneurship Club invites all ND I students â€” next meeting Thursday 4 PM", date: "May 28", reads: 112 },
+  { id: 6, tag: "event", title: "Entrepreneurship Club invites all ND I students \u2013 next meeting Thursday 4 PM", date: "May 28", reads: 112 },
 ];
 
 const materialsData = [
@@ -130,12 +134,12 @@ const materialsData = [
 ];
 
 const marketData = [
-  { id: 1, icon: "ðŸ“š", name: "ND I Textbook Bundle", price: "N3,500", seller: "Fatima A." },
-  { id: 2, icon: "ðŸ–©", name: "Scientific Calculator", price: "N2,200", seller: "Bello M." },
-  { id: 3, icon: "ðŸ‘•", name: "School Lab Coat (M)", price: "N1,800", seller: "Grace O." },
-  { id: 4, icon: "ðŸ’¾", name: "32GB USB Drive", price: "N1,500", seller: "Yakubu S." },
-  { id: 5, icon: "ðŸ“", name: "Engineering Drawing Set", price: "N2,800", seller: "Maryam I." },
-  { id: 6, icon: "ðŸ”‹", name: "Rechargeable Reading Lamp", price: "N2,000", seller: "Daniel A." },
+  { id: 1, icon: "\ud83d\udcda", name: "ND I Textbook Bundle", price: "\u20a6 3,500", seller: "Fatima A." },
+  { id: 2, icon: "\ud83e\uddee", name: "Scientific Calculator", price: "\u20a6 2,200", seller: "Bello M." },
+  { id: 3, icon: "\ud83d\udc55", name: "School Lab Coat (M)", price: "\u20a6 1,800", seller: "Grace O." },
+  { id: 4, icon: "\ud83d\udcbe", name: "32GB USB Drive", price: "\u20a6 1,500", seller: "Yakubu S." },
+  { id: 5, icon: "\ud83d\udcd0", name: "Engineering Drawing Set", price: "\u20a6 2,800", seller: "Maryam I." },
+  { id: 6, icon: "\ud83d\udd0b", name: "Rechargeable Reading Lamp", price: "\u20a6 2,000", seller: "Daniel A." },
 ];
 
 const forumData = [
@@ -147,23 +151,23 @@ const forumData = [
 ];
 
 const servicesData = [
-  { icon: "ðŸ–¨ï¸", name: "Print & Photocopy", desc: "Fast printing, binding, scanning near Gate A", contact: "08012345678" },
-  { icon: "ðŸ½ï¸", name: "Campus Canteen", desc: "Affordable meals, open 7AM-8PM daily", contact: "Block D Canteen" },
-  { icon: "ðŸšŒ", name: "Campus Bus", desc: "Shuttle to town, departs main gate 7AM & 4PM", contact: "SUG Transport" },
-  { icon: "ðŸ’Š", name: "Student Clinic", desc: "Free consultation for registered students, 8AM-5PM", contact: "Admin Block" },
-  { icon: "ðŸ“¡", name: "WiFi Hotspot Points", desc: "Library, Block A & C labs â€” use matric number", contact: "ICT Unit" },
-  { icon: "ðŸ“·", name: "ID & Passport Photos", desc: "Same-day prints, opposite main gate", contact: "08098765432" },
-  { icon: "ðŸ”§", name: "Electronics Repair", desc: "Phones, laptops, gadgets â€” affordable rates", contact: "Workshop Row" },
-  { icon: "âœ‚ï¸", name: "Campus Barbershop", desc: "Haircuts & grooming, near male hostel block", contact: "Behind Block F" },
+  { icon: "\ud83d\udda8\ufe0f", name: "Print & Photocopy", desc: "Fast printing, binding, scanning near Gate A", contact: "08012345678" },
+  { icon: "\ud83c\udf7d\ufe0f", name: "Campus Canteen", desc: "Affordable meals, open 7AM\u20138PM daily", contact: "Block D Canteen" },
+  { icon: "\ud83d\ude8c", name: "Campus Bus", desc: "Shuttle to town, departs main gate 7AM & 4PM", contact: "SUG Transport" },
+  { icon: "\ud83d\udc8a", name: "Student Clinic", desc: "Free consultation for registered students, 8AM\u20135PM", contact: "Admin Block" },
+  { icon: "\ud83d\udce1", name: "WiFi Hotspot Points", desc: "Library, Block A & C labs \u2013 use matric number", contact: "ICT Unit" },
+  { icon: "\ud83d\udcf7", name: "ID & Passport Photos", desc: "Same-day prints, opposite main gate", contact: "08098765432" },
+  { icon: "\ud83d\udd27", name: "Electronics Repair", desc: "Phones, laptops, gadgets \u2013 affordable rates", contact: "Workshop Row" },
+  { icon: "\u2702\ufe0f", name: "Campus Barbershop", desc: "Haircuts & grooming, near male hostel block", contact: "Behind Block F" },
 ];
 
 const navItems = [
-  { id: "home", icon: "ðŸ ", label: "Home" },
-  { id: "news", icon: "ðŸ“¢", label: "News", badge: 3 },
-  { id: "materials", icon: "ðŸ“š", label: "Materials" },
-  { id: "marketplace", icon: "ðŸ›’", label: "Market" },
-  { id: "forum", icon: "ðŸ’¬", label: "Forum", badge: 5 },
-  { id: "services", icon: "ðŸ”§", label: "Services" },
+  { id: "home", icon: "\ud83c\udfe0", label: "Home" },
+  { id: "news", icon: "\ud83d\udce2", label: "News", badge: 3 },
+  { id: "materials", icon: "\ud83d\udcda", label: "Materials" },
+  { id: "marketplace", icon: "\ud83d\uded2", label: "Market" },
+  { id: "forum", icon: "\ud83d\udcac", label: "Forum", badge: 5 },
+  { id: "services", icon: "\ud83d\udd27", label: "Services" },
 ];
 
 export default function BidaCampusHub() {
@@ -184,7 +188,7 @@ export default function BidaCampusHub() {
       <div className="topbar">
         <div className="logo">Bida<span>Hub</span></div>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          <div className="avatar" style={{ background: "var(--border)", color: "var(--text2)", fontSize: "1rem" }}>ðŸ””</div>
+          <div className="avatar" style={{ background: "var(--border)", color: "var(--text2)", fontSize: "1rem" }}>{"\ud83d\udd14"}</div>
           <div className="avatar">PH</div>
         </div>
       </div>
@@ -201,8 +205,8 @@ export default function BidaCampusHub() {
           ))}
           <div style={{ marginTop: "auto", paddingTop: 20 }}>
             <div className="nav-section">Account</div>
-            <button className="nav-item"><span>ðŸ‘¤</span> Profile</button>
-            <button className="nav-item"><span>âš™ï¸</span> Settings</button>
+            <button className="nav-item"><span>{"\ud83d\udc64"}</span> Profile</button>
+            <button className="nav-item"><span>{"\u2699\ufe0f"}</span> Settings</button>
           </div>
         </div>
 
@@ -210,8 +214,8 @@ export default function BidaCampusHub() {
           {active === "home" && (
             <div>
               <div className="hero">
-                <h1>Welcome back,<br /><span>Philip ðŸ‘‹</span></h1>
-                <p>Federal Polytechnic Bida Â· ND I Â· 2025/2026</p>
+                <h1>Welcome back,<br /><span>Philip {"\ud83d\udc4b"}</span></h1>
+                <p>Federal Polytechnic Bida \u00b7 ND I \u00b7 2025/2026</p>
               </div>
               <div className="stats-row">
                 <div className="stat-card"><div className="stat-num">847</div><div className="stat-label">Students</div></div>
@@ -219,23 +223,23 @@ export default function BidaCampusHub() {
                 <div className="stat-card"><div className="stat-num">38</div><div className="stat-label">Listings</div></div>
               </div>
               <div className="card">
-                <div className="card-title">ðŸ“¢ Latest News</div>
+                <div className="card-title">{"\ud83d\udce2"} Latest News</div>
                 {newsData.slice(0, 3).map(n => (
                   <div key={n.id} className="news-item" onClick={() => setActive("news")}>
                     <span className={`news-tag tag-${n.tag}`}>{n.tag}</span>
                     <div className="news-title">{n.title}</div>
-                    <div className="news-meta">{n.date} Â· {n.reads} reads</div>
+                    <div className="news-meta">{n.date} \u00b7 {n.reads} reads</div>
                   </div>
                 ))}
-                <span className="see-all" onClick={() => setActive("news")}>View all announcements â†’</span>
+                <span className="see-all" onClick={() => setActive("news")}>View all announcements \u2192</span>
               </div>
               <div className="card">
-                <div className="card-title">âš¡ Quick Access</div>
+                <div className="card-title">{"\u26a1"} Quick Access</div>
                 <div className="quick-grid">
-                  {[["ðŸ“š","Materials","materials"],["ðŸ›’","Market","marketplace"],["ðŸ’¬","Forum","forum"],["ðŸ”§","Services","services"]].map(([icon,label,id]) => (
+                  {[["\ud83d\udcda","Materials","materials"],["\ud83d\uded2","Market","marketplace"],["\ud83d\udcac","Forum","forum"],["\ud83d\udd27","Services","services"]].map(([icon,label,id]) => (
                     <div key={id} className="quick-item" onClick={() => setActive(id)}>
                       <div className="quick-icon">{icon}</div>
-                      <div className="quick-sub">{label}</div>
+                      <div className="quick-label">{label}</div>
                     </div>
                   ))}
                 </div>
@@ -245,7 +249,7 @@ export default function BidaCampusHub() {
 
           {active === "news" && (
             <div>
-              <div className="section-title">ðŸ“¢ Announcements</div>
+              <div className="section-title">{"\ud83d\udce2"} Announcements</div>
               <div className="filter-pills">
                 {["all","general","exam","event","urgent"].map(f => (
                   <button key={f} className={`pill ${newsFilter === f ? "active" : ""}`} onClick={() => setNewsFilter(f)}>
@@ -258,7 +262,7 @@ export default function BidaCampusHub() {
                   <div key={n.id} className="news-item">
                     <span className={`news-tag tag-${n.tag}`}>{n.tag}</span>
                     <div className="news-title">{n.title}</div>
-                    <div className="news-meta">{n.date} Â· {n.reads} reads</div>
+                    <div className="news-meta">{n.date} \u00b7 {n.reads} reads</div>
                   </div>
                 ))}
               </div>
@@ -267,9 +271,9 @@ export default function BidaCampusHub() {
 
           {active === "materials" && (
             <div>
-              <div className="section-title">ðŸ“š Study Materials</div>
+              <div className="section-title">{"\ud83d\udcda"} Study Materials</div>
               <div className="search-bar">
-                <span style={{ color: "var(--muted)" }}>ðŸ”</span>
+                <span style={{ color: "var(--muted)" }}>{"\ud83d\udd0d"}</span>
                 <input placeholder="Search materials, departments..." value={search} onChange={e => setSearch(e.target.value)} />
               </div>
               <div className="materials-grid">
@@ -278,17 +282,17 @@ export default function BidaCampusHub() {
                     <div className="dept-badge">{m.dept}</div>
                     <div className="material-name">{m.name}</div>
                     <div className="material-info">{m.uploader}</div>
-                    <div className="material-info">{m.size} Â· PDF</div>
+                    <div className="material-info">{m.size} \u00b7 PDF</div>
                   </div>
                 ))}
               </div>
-              <button className="upload-btn" onClick={() => setModal("upload")}>ðŸ“¤ Upload a Material</button>
+              <button className="upload-btn" onClick={() => setModal("upload")}>{"\ud83d\udce4"} Upload a Material</button>
             </div>
           )}
 
           {active === "marketplace" && (
             <div>
-              <div className="section-title">ðŸ›’ Marketplace</div>
+              <div className="section-title">{"\ud83d\uded2"} Marketplace</div>
               <button className="green-btn" onClick={() => setModal("sell")}>+ List Something for Sale</button>
               <div className="filter-pills">
                 {["all","Books","Tech","Tools","Clothing","General"].map(f => (
@@ -312,18 +316,18 @@ export default function BidaCampusHub() {
 
           {active === "forum" && (
             <div>
-              <div className="section-title">ðŸ’¬ Forum</div>
+              <div className="section-title">{"\ud83d\udcac"} Forum</div>
               <button className="green-btn" onClick={() => setModal("post")}>+ Start a Discussion</button>
               <div className="card">
                 {forumData.map(f => (
                   <div key={f.id} className="forum-item">
                     <div className="forum-title">{f.title}</div>
                     <div className="forum-meta">
-                      <span>by {f.author} Â· {f.dept}</span>
+                      <span>by {f.author} \u00b7 {f.dept}</span>
                       <span>{f.replies} replies</span>
                       <span style={{ cursor: "pointer", color: votes[f.id] ? "var(--accent)" : "inherit" }}
                         onClick={() => setVotes(v => ({ ...v, [f.id]: !v[f.id] }))}>
-                        â–² {votes[f.id] ? f.votes + 1 : f.votes}
+                        \u25b2 {votes[f.id] ? f.votes + 1 : f.votes}
                       </span>
                       <span>{f.time}</span>
                     </div>
@@ -335,7 +339,7 @@ export default function BidaCampusHub() {
 
           {active === "services" && (
             <div>
-              <div className="section-title">ðŸ”§ Campus Services</div>
+              <div className="section-title">{"\ud83d\udd27"} Campus Services</div>
               <div className="services-grid">
                 {servicesData.map((s, i) => (
                   <div key={i} className="service-card" onClick={() => showToast(s.name + ": " + s.contact)}>
@@ -363,7 +367,7 @@ export default function BidaCampusHub() {
       {modal === "upload" && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
-            <div className="modal-title">ðŸ“¤ Upload Study Material</div>
+            <div className="modal-title">{"\ud83d\udce4"} Upload Study Material</div>
             <input placeholder="Material title" />
             <select><option>Select Department</option><option>EEE</option><option>SCI</option><option>CHM</option><option>BIO</option><option>MTH</option><option>CMP</option></select>
             <input placeholder="Your name" />
@@ -377,7 +381,7 @@ export default function BidaCampusHub() {
       {modal === "sell" && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
-            <div className="modal-title">ðŸ›’ List an Item</div>
+            <div className="modal-title">{"\ud83d\uded2"} List an Item</div>
             <input placeholder="Item name" />
             <input placeholder="Price (N)" type="number" />
             <select><option>Category</option><option>Books</option><option>Electronics</option><option>Clothing</option><option>Other</option></select>
@@ -393,7 +397,7 @@ export default function BidaCampusHub() {
       {modal === "post" && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
-            <div className="modal-title">ðŸ’¬ Start a Discussion</div>
+            <div className="modal-title">{"\ud83d\udcac"} Start a Discussion</div>
             <input placeholder="Your question or topic" />
             <select><option>Category</option><option>Academics</option><option>Campus Life</option><option>Exams</option><option>General</option></select>
             <textarea placeholder="Give more context (optional)..."></textarea>
@@ -408,4 +412,4 @@ export default function BidaCampusHub() {
       {toast && <div className="toast">{toast}</div>}
     </div>
   );
-}
+           }
